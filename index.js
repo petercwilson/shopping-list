@@ -36,7 +36,7 @@ $(function() {
 
 $(function() {
     $('.shopping-item-toggle').on('click', function(event) {
-        $('.shopping-item').toggleClass("shopping-item__checked");
+        $('ul > li:first-child').toggleClass("shopping-item__checked");
     });
 });
 
@@ -47,6 +47,6 @@ $(function() {
 
 $(function() {
     $('.shopping-item-delete').on('click', function(event) {
-        $('.shopping-item').remove();
+        $('ul > li:first-child').remove();
     });
 });
