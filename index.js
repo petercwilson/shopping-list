@@ -7,7 +7,6 @@
 // Hint: you may find it helpful to read up on and use the following jQuery methods:
 // .submit(), preventDefault(), toggleClass(), and closest()
 
-// permanently remove items from this list
 // this is a function that uses an event listener on the submit form button
 // next it stops the default form behavior
 // the variable results is equal to the value that is passed to the input on the add item click
@@ -26,16 +25,28 @@ $(function() {
         '<button class="shopping-item-delete">' + '<span class="button-label">' 
         + 'delete' + '</span>' + '</button>' + '</div>' +
         '</li>');
+        // need to figure out how to clear the input after submit button is pressed
     });
 });
 
 
 // check and uncheck items on the list by clicking the "check" button
 // use toggleClass to toggle and delete each li added with their respective class
+// the problem is that this is targeting ALL spans with the class .shopping-item
 
 $(function() {
-    $('ul').on('click', 'li', function(event) {
-        $(this).toggleClass("shopping-item__checked");
-        //this.remove();
+    $('.shopping-item-toggle').on('click', function(event) {
+        $('.shopping-item').toggleClass("shopping-item__checked");
+    });
+});
+
+
+// permanently remove items from this list
+// using this.remove() to permanently delete when delete button is pressed
+// the problem is that this is targeting ALL spans with the class .shopping-item
+
+$(function() {
+    $('.shopping-item-delete').on('click', function(event) {
+        $('.shopping-item').remove();
     });
 });
