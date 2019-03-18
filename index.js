@@ -17,11 +17,13 @@ $(function() {
         $('#shopping-list-entry').val(placeholder=" ");
     });
 
-     $('ul').on('click', 'li', 'span', function(event) {
+     $('ul').on('click', 'button.shopping-item-toggle', function(event) {
+         // this is adding the shopping-item_checked to the entire li
+         // need it to just target the class shopping-item that's in the same li
         $(this).closest("li").toggleClass("shopping-item__checked");
     });
 
-    $('.shopping-item-delete').on('click', function(event) {
-        $('ul > li:first-child').remove();
+    $('ul').on('click', 'button.shopping-item-delete', function(event) {
+        $(this).closest("li").remove("li");
     });
 });
