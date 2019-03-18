@@ -33,10 +33,12 @@ $(function() {
 // check and uncheck items on the list by clicking the "check" button
 // use toggleClass to toggle and delete each li added with their respective class
 // the problem is that this is targeting ALL spans with the class .shopping-item
+// targeting first child is better but all button only target first child of entire ul 
+// the .closest() method is working now!! yes!!!
 
 $(function() {
     $('.shopping-item-toggle').on('click', function(event) {
-        $('ul > li:first-child').toggleClass("shopping-item__checked");
+        $(this).closest("li").toggleClass("shopping-item__checked");
     });
 });
 
@@ -44,6 +46,7 @@ $(function() {
 // permanently remove items from this list
 // using this.remove() to permanently delete when delete button is pressed
 // the problem is that this is targeting ALL spans with the class .shopping-item
+// this is working now for all but newly added shopping-item
 
 $(function() {
     $('.shopping-item-delete').on('click', function(event) {
